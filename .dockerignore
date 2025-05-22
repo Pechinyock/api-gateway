@@ -1,0 +1,9 @@
+#ignore docker specific files
+_bin/
+_bin-int/
+_publish/
+**/docker-compose*
+**/Dockerfile*
+**/*Dockerfile*
+**/.dockerignore
+**/*.env*

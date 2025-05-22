@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>TaskTrain</RootNamespace>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<PublishAot>true</PublishAot>
+		<IsAotCompatible>true</IsAotCompatible>
+		<Configurations>Debug;Release;Test;Staging</Configurations>
+	</PropertyGroup>
+
+	<!-- Build configuration depend settings -->
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+		<Optemize>true</Optemize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+		 <!-- Turn off pdb generation  -->
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>none</DebugType>
+		<Optemize>true</Optemize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+		<!-- Turn off pdb generation -->
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>none</DebugType>
+		<Optemize>true</Optemize>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Directory.Build.props" />
+		
+		<!-- Turn off copy appsetting files (template default) -->
+		<Content Update="Config/appsettings*.json">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+			<CopyToPublishDirectory>Never</CopyToPublishDirectory>
+		</Content>
+
+		<!-- Simply copying only needed one appsettings.*.json file to output -->
+		<Content Update="Config/appsettings.Development.json" Condition="'$(Configuration)' == 'Debug'">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+
+		<Content Update="Config/appsettings.Staging.json" Condition="'$(Configuration)' == 'Staging'">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+
+		<Content Update="Config/appsettings.Production.json" Condition="'$(Configuration)' == 'Release'">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		
+	</ItemGroup>
+</Project>
