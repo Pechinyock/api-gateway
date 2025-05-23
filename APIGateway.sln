@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTrain.Gateway", "TaskTrain.Gateway\TaskTrain.Gateway.csproj", "{9885112A-54D8-4BEA-97C1-B649B254A89E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1646E1E6-3F53-49ED-B487-802CCCF12293}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTrain.Gateway.Tests", "Tests\TaskTrain.Gateway.Tests\TaskTrain.Gateway.Tests.csproj", "{64444A4E-4EEF-48CD-9E99-F63FFBCD6288}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{9885112A-54D8-4BEA-97C1-B649B254A89E}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{9885112A-54D8-4BEA-97C1-B649B254A89E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9885112A-54D8-4BEA-97C1-B649B254A89E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64444A4E-4EEF-48CD-9E99-F63FFBCD6288}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64444A4E-4EEF-48CD-9E99-F63FFBCD6288}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64444A4E-4EEF-48CD-9E99-F63FFBCD6288}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64444A4E-4EEF-48CD-9E99-F63FFBCD6288}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{64444A4E-4EEF-48CD-9E99-F63FFBCD6288} = {1646E1E6-3F53-49ED-B487-802CCCF12293}
 	EndGlobalSection
 EndGlobal
