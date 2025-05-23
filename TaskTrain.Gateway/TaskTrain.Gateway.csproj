@@ -38,6 +38,7 @@
 
 	<ItemGroup>
 		<None Remove="Directory.Build.props" />
+		<PackageReference Include="TaskTrain.UsersHub.Client" Version="1.0.0" />
 		
 		<!-- Turn off copy appsetting files (template default) -->
 		<Content Update="Config/appsettings*.json">

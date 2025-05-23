@@ -1,4 +1,7 @@
-﻿namespace TaskTrain.Gateway;
+﻿using Grpc.Net.Client;
+using TaskTrain.Contracts;
+
+namespace TaskTrain.Gateway;
 
 internal static class EntryPoint
 {
@@ -14,7 +17,19 @@ internal static class EntryPoint
 
         var app = builder.Build();
 
-        app.MapGet("/hello", () => { return Results.Ok("hello"); });
+        app.MapGet("/hello", async () => {
+            using var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new UserHub.UserHubClient(channel);
+            var replyTask = client.CreateAsync(new CreateUserRequest() 
+            {
+                Login = "login",
+                Password = "password",
+                RepeatPassword = "password"
+            });
+            var result = await replyTask;
+            var status = replyTask.GetStatus();
+            return Results.Ok("hello");
+        });
 
         app.Run();
     }
