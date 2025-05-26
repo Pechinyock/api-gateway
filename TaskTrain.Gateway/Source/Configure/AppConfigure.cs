@@ -23,4 +23,17 @@ internal static class AppConfigure
         return configBuilder;
     }
 
+    internal static IConfigurationBuilder LoadServicesMapJson(this IConfigurationBuilder configurationBuilder) 
+    {
+        var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+        if (String.IsNullOrWhiteSpace(environmentName))
+        {
+            environmentName = "Production";
+        }
+        configurationBuilder.AddJsonFile($"ServicesMap/services-map.{environmentName}.json");
+        return configurationBuilder;
+    }
+
+
 }

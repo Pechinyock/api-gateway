@@ -1,0 +1,12 @@
+﻿{
+  "ServicesMap": [
+    {
+      "Name": "user-hub",
+      "Address": "httpLox"
+    },
+    {
+      "Name": "test-service",
+      "Address": "samlox"
+    }
+  ]
+}

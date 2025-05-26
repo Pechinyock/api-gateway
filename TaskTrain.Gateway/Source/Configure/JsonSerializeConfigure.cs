@@ -5,6 +5,7 @@ namespace TaskTrain.Gateway;
 [JsonSerializable(typeof(bool))]
 [JsonSerializable(typeof(int))]
 [JsonSerializable(typeof(string))]
+[JsonSerializable(typeof(Dictionary<string, string>))]
 internal partial class AppJsonSerializerContext : JsonSerializerContext
 {
 }

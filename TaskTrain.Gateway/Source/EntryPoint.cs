@@ -12,10 +12,15 @@ internal static class EntryPoint
         builder.Configuration.Sources.Clear();
         builder.Configuration.LoadEnvironmentVariables();
         builder.Configuration.LoadAppsettingsJson();
+        builder.Configuration.LoadServicesMapJson();
 
         builder.Services.ConfigureJsonSerializer();
-
+        
         var app = builder.Build();
+
+        var loadedConfiguration = app.Configuration;
+
+        app.ConfigureServicesMap(loadedConfiguration);
 
         app.MapGet("/hello", async () => {
             using var channel = GrpcChannel.ForAddress("https://localhost:5001");

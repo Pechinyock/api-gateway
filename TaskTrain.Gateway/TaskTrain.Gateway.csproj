@@ -61,6 +61,16 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 		</Content>
+
+		<Content Update="ServicesMap\services-map.Staging.json">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		  <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+		</Content>
+
+		<Content Update="ServicesMap\services-map.Test.json">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		  <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+		</Content>
 		
 	</ItemGroup>
 </Project>
